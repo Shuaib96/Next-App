@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  productionBrowserSourceMaps: false,
+  turbopack: {}, // ← required when using a webpack config in Next 16
+  webpack: (config) => {
+    return config; // forces Webpack instead of Turbopack
+  },
 };
 
 export default nextConfig;
