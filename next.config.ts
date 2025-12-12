@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
   webpack: (config) => {
     return config; // forces Webpack instead of Turbopack
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.tmdb.org",
+        pathname: "**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
